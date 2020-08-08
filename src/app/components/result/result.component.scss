@@ -1,0 +1,99 @@
+@import './../header/header.component.scss';
+
+.result {
+  display: flex;
+  flex-direction: row;
+
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  &__oneway, &__twoway {
+    flex: .9 1 0;
+
+    @media only screen and (max-width: 768px) {
+      flex: 1 1 0;
+      padding: 10px;
+    }
+  }
+
+  &__nodata {
+    width: 60%;
+    margin: 0 auto;
+
+    &-image {
+      background-image: url('./../../../assets/images/no-data.jpg');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      height: 400px;
+      width: 100%;
+
+      @media only screen and (max-width: 768px) {
+        height: 280px;
+      }
+    }
+  }
+
+  &__info {
+    padding:5px;
+    color: map-get($color-palette, flt-primary);
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+
+    @media only screen and (max-width: 768px) {
+      font-size: 1.2em;
+    }
+
+  }
+
+  &__landing {
+    background-image: url('./../../../assets/images/landing.gif');
+    background-size: 74% 100%;
+    background-repeat: no-repeat;
+    height: 400px;
+    width: 100%;
+    background-position: center;
+    margin-top: 60px;
+
+    @media only screen and (max-width: 768px) {
+      height: 280px;
+      background-size: 100% 100%;
+    }
+  }
+
+  &__header {
+  height: 50px;
+  width: 100%;
+  background-color: map-get($color-palette, flt-white);
+  color: map-get($color-palette, flt-primary);
+  display: flex;
+  justify-content: left;
+  padding: 20px 0;
+  border-bottom: 1px solid;
+
+  &-title {
+    font-size: 1.6em;
+    font-weight: bold;
+    top: 12%;
+    position: relative;
+    text-align: left;
+  }
+
+  &-img {
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+    height: inherit;
+    width: 40px;
+    margin-right: 2%;
+
+    &.takeoff {
+      background-image: url('./../../../assets/images/airplane-takeoff.png');
+    }
+
+    &.landing {
+      background-image: url('./../../../assets/images/airplane-landing.png');
+    }
+  }
+}
+}

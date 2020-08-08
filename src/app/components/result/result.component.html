@@ -1,0 +1,46 @@
+<div class="result">
+  <div class="result__nodata" *ngIf="flights?.oneWay.length===0">
+    <div class="result__nodata-image">
+    </div>
+    <p class="result__info">No flights found</p>
+  </div>
+
+  <div *ngIf="!flights">
+    <div class="result__landing">
+    </div>
+    <p class="result__info">Start your flight search. Data available b/w 1st and 2nd Nov.</p>
+  </div>
+
+  <div *ngIf="flights?.oneWay.length>0" class="result__oneway">
+    <div class="result__header">
+      <div class="result__header-img takeoff"></div>
+      <div class="result__header-title">
+        {{flights.oneWay[0].origin}} to {{flights.oneWay[0].destination}}
+      </div>
+    </div>
+    <div class="result__cards">
+      <div *ngFor="let flight of flights?.oneWay | byPrice: priceFilter : flights.formVal.passengers">
+        <app-flight-card [flightData]="flight" [passengers]="flights.formVal.passengers"
+          [returnFlight]="flights?.twoWay?.length>0">
+        </app-flight-card>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="flights?.twoWay?.length>0" class="result__twoway">
+    <div class="result__header">
+      <div class="result__header-img landing"></div>
+      <div class="result__header-title">
+        {{flights.twoWay[0].origin}} to {{flights.twoWay[0].destination}}
+      </div>
+    </div>
+    <div class="result__cards">
+      <div *ngFor="let flight of flights?.twoWay | byPrice: priceFilter : flights.formVal.passengers">
+        <app-flight-card [flightData]="flight" [passengers]="flights.formVal.passengers"
+          [returnFlight]="flights?.twoWay?.length>0"></app-flight-card>
+      </div>
+
+    </div>
+  </div>
+
+</div>

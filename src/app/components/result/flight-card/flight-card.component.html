@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="card__flight-img" ngClass="{{'card__flight-' + flightData?.flightNo.split('-')[0]}}">
+  </div>
+  <div class="card__flight-det">
+    <div class="card__flight-det-main" [ngClass]="{'return':returnFlight === true}">{{flightData.name}}</div>
+    <div>{{flightData.flightNo}}</div>
+  </div>
+  <div class="card__flight-det">
+    <div class="card__flight-det-main" [ngClass]="{'return':returnFlight === true}">{{flightData.departureTime}}</div>
+    <div>{{flightData.origin.split(' (')[0]}}</div>
+  </div>
+  <div class="card__flight-det">
+    <div class="card__flight-det-main" [ngClass]="{'return':returnFlight === true}">{{flightData.arrivalTime}}</div>
+    <div>{{flightData.destination.split(' (')[0]}}</div>
+  </div>
+  <div class="card__flight-det">
+    <div class="card__flight-det-main" [ngClass]="{'return':returnFlight === true}">
+      {{flightData.arrivalTime.split(':')[0]-flightData.departureTime.split(':')[0]}}
+      :{{flightData.arrivalTime.split(':')[1]-flightData.departureTime.split(':')[1]}}
+    </div>
+    <div>non stop</div>
+  </div>
+  <div class="card__flight-det">
+    <div class="card__flight-det-main" [ngClass]="{'return':returnFlight === true}">₹ {{flightData.price*passengers}}
+    </div>
+  </div>
+  <div class="card__flight-det">
+    <button class="card__flight-det-book">Book</button>
+  </div>
+</div>

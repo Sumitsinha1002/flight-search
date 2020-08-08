@@ -1,0 +1,138 @@
+@import '../../vars.scss';
+
+.search {
+  width: 100%;
+  padding: 5% 0;
+  &__nav {
+    display: flex;
+    justify-content: center;
+      &-btn {
+        height: 50px;
+        width: 25%;
+        cursor: pointer;
+        text-align: center;
+        line-height: 50px;
+        margin-left: 2%;
+        background-color: map-get($color-palette, flt-white);
+        color: map-get($color-palette, flt-secondary);
+        border: 1px solid map-get($color-palette, flt-secondary);
+        box-sizing: border-box;
+        transition: all .5s;
+
+        &.active {
+          background-color: map-get($color-palette, flt-secondary);
+          color: map-get($color-palette, flt-white);
+          border: 1px solid map-get($color-palette, flt-white);
+        }
+      }
+
+    }
+
+    &__form {
+      &-field {
+        margin: 10px 0;
+
+        @media only screen and (max-width: 768px) {
+          width: 50%;
+          display: inline-block;
+        }
+      }
+
+
+      &-error {
+        color: map-get($color-palette, flt-red);
+        text-align: center;
+      }
+
+      &-submit {
+        display: block;
+        margin: 0 auto;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 1.5em;
+        cursor: pointer;
+        background-color: map-get($color-palette, flt-secondary);
+        color: map-get($color-palette, flt-white);
+        border: 1px solid map-get($color-palette, flt-white);
+
+        &.invalid {
+          cursor: no-drop;
+          background-color: map-get($color-palette, flt-white);
+          color: map-get($color-palette, flt-secondary);
+          border: 1px solid map-get($color-palette, flt-secondary);
+        }
+
+      }
+
+      input {
+        display: block;
+        width: 60%;
+        border-radius: 0;
+        padding: 10px;
+        font-size: 1.6em;
+        border: 1px solid;
+        margin: 0 auto;
+
+        @media only screen and (max-width: 768px) {
+          width: 75%;
+          font-size: 1.2em;
+        }
+      }
+    }
+    &__range
+    {
+      &-text {
+        font-size: 1.5em;
+        text-align: left;
+        margin-left: 18%;
+      }
+
+      &-label {
+        width: 66%;
+        display: flex;
+        margin: 0 auto;
+        justify-content: space-between;
+      }
+
+      &-slider {
+      -webkit-appearance: none;
+      width: 60%;
+      height: 10px;
+      border-radius: 5px;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+      opacity: .7;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 23px;
+        height: 24px;
+        border: 1px solid #068db9;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        border-radius: 100%;
+        background: #068db9;
+        cursor: pointer;
+      }
+
+      &::-moz-range-thumb {
+        width: 23px;
+        height: 24px;
+        border: 1px solid #068db9;
+        transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+        border-radius: 100%;
+        background: #068db9;
+        cursor: pointer;
+      }
+    }
+
+
+  }
+
+
+  }

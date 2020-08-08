@@ -1,0 +1,59 @@
+  <div class="search">
+    <nav class="search__nav">
+      <div for="tab1" class="search__nav-btn" [ngClass]="{'active':activeTab === 'oneway'}" (click)="toggleTab('oneway');">One Way</div>
+      <div for="tab2" class="search__nav-btn" [ngClass]="{'active':activeTab === 'roundtrip'}" (click)="toggleTab('roundtrip');">Round Trip</div>
+    </nav>
+    <div class="search__form">
+      <form #form="ngForm" (ngSubmit)="flightSearch(form.value)" novalidate>
+        <div class="search" id="tab1">
+          <div class="search__form-field">
+            <input placeholder="From" name="origin" [(ngModel)]="model.origin" #origin="ngModel" type="text" list="citylist"
+            required/>
+          </div>
+          <div class="search__form-field">
+            <input placeholder="To" name="dest" type="text" [(ngModel)]="model.dest" #dest="ngModel" list="citylist"
+            required/>
+          </div>
+
+          <div class="search__form-field">
+            <input type="date" name="startDate" id="oJrDate" min="today" [(ngModel)]="model.startDate" #startDate="ngModel" required
+            />
+          </div>
+          <div class="search__form-field" *ngIf="activeTab === 'roundtrip'">
+            <input type="date" name="returnDate" [(ngModel)]="model.returnDate" #returnDate="ngModel" id="rJrDate" required >
+
+          </div>
+
+          <div class="search__form-field">
+            <input type="number" name="passengers" [(ngModel)]="model.passengers" #passengers="ngModel" id="oPassCnt" min="1" placeholder="No of passengers"
+            required/>
+          </div>
+          <datalist id="citylist" *ngIf="cities">
+            <option *ngFor="let city of cities " [value]="city.code">{{city.name}}</option>
+          </datalist>
+          <button type="submit" [disabled]="form.invalid" [ngClass]="{invalid: form.invalid}" class="search__form-submit"
+          id="tSearchBtn">Search
+        </button>
+        <div class="search__form-error" *ngIf="form.invalid">
+          All fields are mandatory
+        </div>
+        <div *ngIf="minPrice" class="search__range">
+          <p class="search__range-text">Filter By Price</p>
+          <div class="search__range-label">
+            <span>
+              ₹ {{minPrice}}
+            </span>
+            <span>
+              ₹ {{maxPrice}}
+            </span>
+          </div>
+          <input type="range" class="search__range-slider " [min]="minPrice" [max]="maxPrice" #price (change)="filterByPrice(price.value)" [value]="maxPrice"
+          />
+
+          <div for="priceRange" class="search__range-label">Current Value: ₹ {{price.value}}</div>
+
+        </div>
+      </div>
+    </form>
+  </div>
+  </div>

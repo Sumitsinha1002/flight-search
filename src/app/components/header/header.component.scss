@@ -1,0 +1,27 @@
+@import '../../vars.scss';
+.header {
+  height: 50px;
+  width: 100%;
+  background-color: map-get($color-palette, flt-primary);
+  color: map-get($color-palette, flt-white);
+  display: flex;
+  justify-content: center;
+
+  &__title {
+    font-size: 2em;
+    font-weight: bold;
+    top: 12%;
+    position: relative;
+    text-align: center;
+  }
+
+  &__img {
+    background-image: url('./../../../assets/images/airplane.svg');
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+    background-position: 37%;
+    height: inherit;
+    width: 40px;
+    margin-right: 2%;
+  }
+}

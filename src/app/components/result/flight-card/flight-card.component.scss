@@ -1,0 +1,61 @@
+
+@import '../../../vars.scss';
+.card {
+  border: 1px solid;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0;
+  align-items: center;
+
+  &__flight {
+    &-det {
+      flex: 1 1 0px;
+      text-align: center;
+
+      &-main {
+        font-size: 2em;
+        @media only screen and (max-width: 768px) {
+          font-size: 1.2em;
+        }
+
+        &.return {
+          font-size: 1.2em;
+        }
+      }
+
+      &-book {
+        height: 50px;
+        width: 70%;
+        cursor: pointer;
+        text-align: center;
+        line-height: 50px;
+        background-color: map-get($color-palette, flt-white);
+        color: map-get($color-palette, flt-secondary);
+        border: 1px solid map-get($color-palette, flt-secondary);
+      }
+    }
+
+    &-img {
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      height: inherit;
+      width: 10%;
+      margin-right: 2%;
+    }
+
+    &-AI {
+      background-image: url('./../../../../assets/images/air-india.jpg');
+    }
+
+    &-SJ {
+      background-image: url('./../../../../assets/images/sj.png');
+    }
+
+    &-TW {
+      background-image: url('./../../../../assets/images/air-china.png');
+    }
+
+  }
+}
